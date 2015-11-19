@@ -29,6 +29,14 @@ build:
         code: |
             apt-get -y install php5 php-pear
     - script:
-        name: echo
+        name: どこ？ここ？
+        code: |
+            pwd
+    - script:
+        name: 何がある？
+        code: |
+            ls -al
+    - script:
+        name: test
         code: |
             pear run-tests test/
