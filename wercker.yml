@@ -1,42 +1,20 @@
-# This references a standard debian container from the
-# Docker Hub https://registry.hub.docker.com/_/debian/
-# Read more about containers on our dev center
-# http://devcenter.wercker.com/docs/containers/index.html
 box: debian:7.9
-# You can also use services such as databases. Read more on our dev center:
-# http://devcenter.wercker.com/docs/services/index.html
-# services:
-    # - postgres
-    # http://devcenter.wercker.com/docs/services/postgresql.html
-
-    # - mongodb
-    # http://devcenter.wercker.com/docs/services/mongodb.html
-
-# This is the build pipeline. Pipelines are the core of wercker
-# Read more about pipelines on our dev center
-# http://devcenter.wercker.com/docs/pipelines/index.html
 build:
-    # Steps make up the actions in your pipeline
-    # Read more about steps on our dev center:
-    # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     - script:
         name: update
         code: |
             apt-get update
     - script:
-        name: php5
+        name: ミドルソフトウェアインストール
         code: |
-            apt-get -y install php5 php-pear
+            apt-get -y install wget net-tools \
+            apt-get -y install git make \
+            apt-get -y install php5 apache2 \
+            apt-get -y install php5-dev php5-mysql gcc libpcre3-dev \
+            apt-get -y install vim curl chkconfig
     - script:
-        name: どこ？ここ？
+        name: phalconインストール
         code: |
-            pwd
-    - script:
-        name: 何がある？
-        code: |
-            ls -al
-    - script:
-        name: test
-        code: |
-            pear run-tests tests/
+            git clone --depth=1 https://github.com/phalcon/cphalcon.git \
+            cphalcon/build/install
