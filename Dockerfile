@@ -14,8 +14,8 @@ RUN apt-get -y install vim curl chkconfig
 
 # phalconインストール
 RUN git clone --depth=1 https://github.com/phalcon/cphalcon.git
-WORKDIR /root/cphalcon/build
-RUN ./install
+WORKDIR /root/cphalcon/build/64bits
+RUN phpize && ./configure CFLAS="-02 -g" && make install
 
 # phalcon設定
 COPY asset/phalcon.ini /etc/php5/mods-available/
