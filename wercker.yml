@@ -17,4 +17,5 @@ build:
         name: phalconインストール
         code: |
             git clone --depth=1 https://github.com/phalcon/cphalcon.git && \
-            cphalcon/build/install
+            cd cphalcon/build && \
+            ./install
