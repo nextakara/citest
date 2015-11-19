@@ -35,11 +35,7 @@ RUN ln -s /root/phalcon-devtools/phalcon.php /usr/bin/phalcon
 RUN chmod ugo+x /usr/bin/phalcon
 RUN ln -s /var/www/sample1/vendor/bin/phpunit /usr/local/bin/
 
-# ip固定
-WORKDIR /root/
-COPY asset/ipchange /etc/init.d/
-RUN chkconfig --add ipchange
-
+# 設定ファイルコピー
 COPY asset/apache2.conf /etc/apache2/
 COPY asset/default /etc/apache2/sites-available/
 COPY asset/php.ini /etc/php5/apache2/
