@@ -19,3 +19,11 @@ build:
             git clone --depth=1 https://github.com/phalcon/cphalcon.git && \
             cd cphalcon/build && \
             ./install
+deploy:
+  steps:
+    - internal/docker-push:
+        username: $USERNAME
+        password: $PASSWORD
+        tag: latest
+        repository: takaramanabu/citest
+        registry: https://registry.hub.docker.com
