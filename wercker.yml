@@ -27,7 +27,7 @@ build:
     - script:
         name: php5
         code: |
-            apt-get -y install php5 php5-pear
+            apt-get -y install php5 php-pear
     - script:
         name: echo
         code: |
