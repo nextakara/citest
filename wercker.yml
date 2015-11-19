@@ -21,6 +21,10 @@ build:
     # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     - script:
+        name: update
+        code: |
+            apt-get update
+    - script:
         name: php5
         code: |
             apt-get -y install php5 php5-pear
