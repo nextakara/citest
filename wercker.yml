@@ -39,4 +39,4 @@ build:
     - script:
         name: test
         code: |
-            pear run-tests test/
+            pear run-tests tests/
